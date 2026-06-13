@@ -1,0 +1,1 @@
+A premium Chromium extension trading assistant HUD overlay for TradingView. Runs real-time multi-strategy and multi-timeframe consensus (Accumulation/Distribution, Supply/Demand, SMC liquidity, Volume Profile, Price Action), calculates dynamic risk-based position sizing, plots interactive sparkline canvases, and generates custom Pine Script v5 code.

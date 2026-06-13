@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Trading Edge</title>
+  <!-- Google Fonts: Inter and Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="logo-icon">●</span>
+        <h1>Antigravity Trading Edge</h1>
+      </div>
+      <span class="status-badge" id="network-status">Connected</span>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Pair Selector -->
+      <section class="section pair-section">
+        <h2 class="section-title">Select Trading Asset</h2>
+        <div class="pair-select-wrapper">
+          <select id="pair-selector" class="pair-dropdown">
+            <option value="XAUUSD">🪙 XAU/USD (Gold Spot)</option>
+            <option value="BTCUSD">₿ BTC/USD (Bitcoin)</option>
+            <option value="ETHUSD">♦ ETH/USD (Ethereum)</option>
+            <option value="SOLUSD">☼ SOL/USD (Solana)</option>
+            <option value="EURUSD">€ EUR/USD (Euro Spot)</option>
+            <option value="GBPUSD">£ GBP/USD (Pound Spot)</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Strategy Selector -->
+      <section class="section strategy-section">
+        <div class="section-header">
+          <h2 class="section-title">Analysis Strategies</h2>
+          <label class="auto-switch-label">
+            <input type="checkbox" id="auto-strategies" checked>
+            <span class="auto-switch-custom">Auto Select</span>
+          </label>
+        </div>
+        
+        <div class="strategies-grid" id="strategies-grid">
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-accumulation" data-strategy="accumulationDistribution" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Accumulation / Distribution</span>
+              <span class="strategy-desc">Smart money volume flows</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-supplydemand" data-strategy="supplyDemand" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Supply & Demand Zones</span>
+              <span class="strategy-desc">Order blocks & market imbalances</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-supportresistance" data-strategy="supportResistance" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Support & Resistance</span>
+              <span class="strategy-desc">Horizontal pivot swing boundaries</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-fibonacci" data-strategy="fibonacci" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Fibonacci Retracement</span>
+              <span class="strategy-desc">0.618 golden ratio level tests</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-priceaction" data-strategy="priceAction" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Price Action Trading</span>
+              <span class="strategy-desc">Candlestick reversal patterns</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-marketstructure" data-strategy="marketStructure" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Market Structure</span>
+              <span class="strategy-desc">HH/HL & LH/LL structure breaks</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-volumeprofile" data-strategy="volumeProfile" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Volume Profile (VPVR)</span>
+              <span class="strategy-desc">Volume Point of Control (POC)</span>
+            </span>
+          </label>
+
+          <label class="strategy-card">
+            <input type="checkbox" class="strategy-check" id="strat-liquidity" data-strategy="liquidity" checked>
+            <span class="strategy-info">
+              <span class="strategy-name">Liquidity Analysis (ERL/IRL)</span>
+              <span class="strategy-desc">BSL/SSL pools & Fair Value Gaps</span>
+            </span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Risk Calculator Settings -->
+      <section class="section risk-section">
+        <h2 class="section-title">Risk Settings</h2>
+        <div class="risk-inputs-group">
+          <div class="risk-input-field">
+            <label for="risk-balance" class="input-label">Account Size ($)</label>
+            <input type="number" id="risk-balance" value="10000" step="500" min="10">
+          </div>
+          <div class="risk-input-field">
+            <label for="risk-pct" class="input-label">Risk Percentage (%)</label>
+            <input type="number" id="risk-pct" value="1.0" step="0.1" min="0.1" max="100">
+          </div>
+        </div>
+      </section>
+
+      <!-- Strategy Settings Panel -->
+      <section class="section settings-section">
+        <details class="settings-details">
+          <summary class="settings-summary">
+            <span class="settings-title">⚙ Strategy Parameters</span>
+          </summary>
+          <div class="settings-grid-panel">
+            <div class="setting-item">
+              <label for="param-atr" class="input-label">ATR Volatility Period</label>
+              <input type="number" id="param-atr" value="14" min="2" max="100">
+            </div>
+            <div class="setting-item">
+              <label for="param-fib" class="input-label">Fib Swing Lookback</label>
+              <input type="number" id="param-fib" value="60" min="5" max="300">
+            </div>
+            <div class="setting-item">
+              <label for="param-sr" class="input-label">S&R Fractal Range</label>
+              <input type="number" id="param-sr" value="3" min="1" max="15">
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- Action Panel -->
+      <section class="action-panel">
+        <button id="btn-decide" class="btn btn-primary">
+          <span class="btn-text">DECIDE</span>
+          <span class="btn-glow"></span>
+        </button>
+        <button id="btn-multi-tf" class="btn btn-secondary">
+          <span class="btn-text">Multi-TF HUD</span>
+          <span class="btn-subtext">Draw on TradingView</span>
+        </button>
+      </section>
+
+      <!-- Analysis Results Dashboard -->
+      <section id="results-panel" class="results-panel hidden">
+        <div class="result-header">
+          <div class="signal-badge-wrapper">
+            <div id="signal-badge" class="signal-badge neutral">NEUTRAL</div>
+          </div>
+          <div class="confidence-wrapper">
+            <span class="label">Confidence</span>
+            <div class="stars-container" id="stars-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="levels-grid">
+          <div class="level-box">
+            <span class="level-label">Order Type</span>
+            <div class="level-val" id="val-order-type">--</div>
+          </div>
+          <div class="level-box actionable" id="box-entry">
+            <span class="level-label">Approx. Entry</span>
+            <div class="level-val" id="val-entry">--</div>
+            <button class="copy-btn" data-target="val-entry" title="Copy Entry Price">📋</button>
+          </div>
+          <div class="level-box actionable" id="box-sl">
+            <span class="level-label">Stop Loss (SL)</span>
+            <div class="level-val val-sl" id="val-sl">--</div>
+            <button class="copy-btn" data-target="val-sl" title="Copy Stop Loss">📋</button>
+          </div>
+          <div class="level-box actionable" id="box-tp">
+            <span class="level-label">Take Profit (TP)</span>
+            <div class="level-val val-tp" id="val-tp">--</div>
+            <button class="copy-btn" data-target="val-tp" title="Copy Take Profit">📋</button>
+          </div>
+          <div class="level-box" id="box-pos-size" style="grid-column: span 2;">
+            <span class="level-label">Suggested Position Size</span>
+            <div class="level-val" id="val-pos-size">--</div>
+          </div>
+        </div>
+
+        <div class="rationale-box">
+          <span class="rationale-title">Trade Rationale</span>
+          <p class="rationale-text" id="val-explanation">Select strategies and press Decide to generate analysis details.</p>
+        </div>
+        <button id="btn-copy-pinescript" class="btn btn-secondary" style="width: 100%; margin-top: 10px; height: 32px;" title="Copy Pine Script for TradingView">
+          <span class="btn-text" style="font-size: 11px;">📋 Copy Pine Script Code</span>
+        </button>
+      </section>
+      
+      <!-- Loader overlay -->
+      <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <div class="loading-text">Analyzing market dynamics...</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="analysisEngine.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+/* 
+ * TradingView Injected HUD CSS - Minimalist & Clear
+ * Antigravity Trading Edge Overlay
+ */
+
+#antigravity-hud-container {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  width: 310px;
+  background: #121315 !important;
+  border: 1px solid #27282c !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+  color: #e2e8f0 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  z-index: 999999 !important;
+  transition: all 0.2s ease !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+#antigravity-hud-container.collapsed {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  top: 70px !important;
+  right: 15px !important;
+  cursor: pointer !important;
+  background: #18191c !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.antigravity-hud-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 12px !important;
+  border-bottom: 1px solid #27282c !important;
+  background: #121315 !important;
+  position: relative !important;
+  z-index: 102 !important;
+}
+
+#antigravity-hud-container.collapsed .antigravity-hud-header {
+  padding: 0 !important;
+  border: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.antigravity-hud-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 11px !important;
+  font-weight: 600;
+  letter-spacing: 0.5px !important;
+  color: #f1f5f9 !important;
+}
+
+#antigravity-hud-container.collapsed .antigravity-hud-title {
+  display: none !important;
+}
+
+.antigravity-logo-accent {
+  color: #3b82f6 !important;
+}
+
+.antigravity-toggle-btn {
+  background: none !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  padding: 2px !important;
+  transition: color 0.15s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.antigravity-toggle-btn:hover {
+  color: #f1f5f9 !important;
+}
+
+#antigravity-hud-container.collapsed .antigravity-toggle-btn {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 16px !important;
+  color: #3b82f6 !important;
+}
+
+.antigravity-hud-body {
+  padding: 12px !important;
+  max-height: 480px !important;
+  overflow-y: auto !important;
+}
+
+#antigravity-hud-container.collapsed .antigravity-hud-body {
+  display: none !important;
+}
+
+/* Pair & Signal Alert */
+.antigravity-alert-strip {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 10px !important;
+}
+
+.antigravity-hud-pair {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+.antigravity-hud-signal {
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+}
+
+.antigravity-hud-signal.buy {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #10b981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+.antigravity-hud-signal.sell {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+
+.antigravity-hud-signal.neutral {
+  background: rgba(245, 158, 11, 0.1) !important;
+  color: #f59e0b !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Multi-TF Badges Row */
+.antigravity-tf-row {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 4px !important;
+  margin-bottom: 12px !important;
+}
+
+.antigravity-tf-badge {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  background: rgba(255, 255, 255, 0.01) !important;
+  border: 1px solid #27282c !important;
+  border-radius: 4px !important;
+  padding: 4px 0 !important;
+}
+
+.antigravity-tf-name {
+  font-size: 8px !important;
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  margin-bottom: 2px !important;
+}
+
+.antigravity-tf-dot {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: #4b5563 !important;
+}
+
+.antigravity-tf-dot.buy {
+  background: #10b981 !important;
+}
+
+.antigravity-tf-dot.sell {
+  background: #ef4444 !important;
+}
+
+.antigravity-tf-dot.neutral {
+  background: #f59e0b !important;
+}
+
+/* Levels Table */
+.antigravity-levels-table {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #27282c !important;
+  border-radius: 6px !important;
+  padding: 8px 10px !important;
+  margin-bottom: 12px !important;
+}
+
+.antigravity-level-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 4px 0 !important;
+}
+
+.antigravity-level-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
+  margin-bottom: 4px !important;
+}
+
+.antigravity-level-label {
+  font-size: 9.5px !important;
+  color: #94a3b8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.antigravity-level-val-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.antigravity-level-val {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+.antigravity-level-val.entry { color: #3b82f6 !important; }
+.antigravity-level-val.sl { color: #fca5a5 !important; }
+.antigravity-level-val.tp { color: #6ee7b7 !important; }
+
+.antigravity-level-copy {
+  background: none !important;
+  border: none !important;
+  font-size: 9px !important;
+  cursor: pointer !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.15s !important;
+  padding: 0 2px !important;
+  color: #ffffff !important;
+}
+
+.antigravity-level-copy:hover {
+  opacity: 0.9 !important;
+}
+
+.antigravity-level-copy.copied {
+  color: #10b981 !important;
+  opacity: 1 !important;
+}
+
+/* Strategy Checklist */
+.antigravity-checklist-title {
+  font-size: 9px !important;
+  text-transform: uppercase !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 6px !important;
+  font-weight: 500;
+}
+
+.antigravity-checklist {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  margin-bottom: 10px !important;
+}
+
+.antigravity-check-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: rgba(255, 255, 255, 0.005) !important;
+  border: 1px solid #1e2022 !important;
+  border-radius: 4px !important;
+  padding: 5px 8px !important;
+}
+
+.antigravity-check-name {
+  font-size: 10px !important;
+  color: #cbd5e1 !important;
+}
+
+.antigravity-check-status {
+  font-size: 9px !important;
+  font-weight: 600 !important;
+}
+
+.antigravity-check-status.buy { color: #10b981 !important; }
+.antigravity-check-status.sell { color: #ef4444 !important; }
+.antigravity-check-status.neutral { color: #94a3b8 !important; }
+
+/* Explanation Box */
+.antigravity-explanation-box {
+  border-top: 1px solid #27282c !important;
+  padding-top: 8px !important;
+  margin-top: 6px !important;
+}
+
+.antigravity-explanation-title {
+  font-size: 9px !important;
+  text-transform: uppercase !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 4px !important;
+  display: block !important;
+}
+
+.antigravity-explanation-text {
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+  color: #e2e8f0 !important;
+  text-align: justify !important;
+}
+
+/* Floating Horizontal Reference Price Lines */
+.antigravity-chart-price-line {
+  position: absolute !important;
+  right: 0 !important;
+  left: 0 !important;
+  height: 1px !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.antigravity-line-dash {
+  flex-grow: 1 !important;
+  height: 0 !important;
+}
+
+.antigravity-chart-price-line.entry .antigravity-line-dash { border-top: 1px dashed #3b82f6 !important; }
+.antigravity-chart-price-line.sl .antigravity-line-dash { border-top: 1px dashed #ef4444 !important; }
+.antigravity-chart-price-line.tp .antigravity-line-dash { border-top: 1px dashed #10b981 !important; }
+.antigravity-chart-price-line.bsl .antigravity-line-dash { border-top: 1px dashed #fbbf24 !important; }
+.antigravity-chart-price-line.ssl .antigravity-line-dash { border-top: 1px dashed #f97316 !important; }
+
+.antigravity-line-label {
+  padding: 2px 6px !important;
+  font-size: 8.5px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  border-radius: 2px 0 0 2px !important;
+  flex-shrink: 0 !important;
+}
+
+.antigravity-chart-price-line.entry .antigravity-line-label { background: #3b82f6 !important; }
+.antigravity-chart-price-line.sl .antigravity-line-label { background: #ef4444 !important; }
+.antigravity-chart-price-line.tp .antigravity-line-label { background: #10b981 !important; }
+.antigravity-chart-price-line.bsl .antigravity-line-label { background: #fbbf24 !important; color: #000000 !important; }
+.antigravity-chart-price-line.ssl .antigravity-line-label { background: #f97316 !important; }
+
+/* Timeframe Chart Snapshots Grid */
+.antigravity-snapshots-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 5px !important;
+  margin-bottom: 12px !important;
+}
+
+.antigravity-snapshot-card {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid #27282c !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  cursor: pointer !important;
+  transition: border-color 0.15s ease, background 0.15s ease !important;
+  text-align: center !important;
+}
+
+.antigravity-snapshot-card:hover {
+  border-color: #3b82f6 !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.antigravity-snapshot-tf {
+  font-size: 8px !important;
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  display: block !important;
+  margin-bottom: 2px !important;
+  text-transform: uppercase !important;
+}
+
+.antigravity-mini-chart {
+  width: 100% !important;
+  height: 32px !important;
+  display: block !important;
+  background: #08080a !important;
+  border-radius: 2px !important;
+}
+
+/* Lightbox Modal Styles */
+#antigravity-chart-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(10, 12, 16, 0.85) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999999 !important;
+}
+
+.antigravity-modal-content {
+  background: #121315 !important;
+  border: 1px solid #27282c !important;
+  border-radius: 8px !important;
+  width: 700px !important;
+  max-width: 90vw !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+  padding: 16px !important;
+  animation: modalFadeIn 0.15s ease forwards !important;
+  box-sizing: border-box !important;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.antigravity-modal-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid #27282c !important;
+  padding-bottom: 8px !important;
+}
+
+.antigravity-modal-title {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+.antigravity-modal-close {
+  background: none !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  padding: 2px !important;
+  transition: color 0.15s ease !important;
+}
+
+.antigravity-modal-close:hover {
+  color: #ffffff !important;
+}
+
+.antigravity-modal-canvas-wrapper {
+  background: #08080a !important;
+  border: 1px solid #1e2022 !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+  margin-bottom: 12px !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+#antigravity-modal-canvas {
+  width: 100% !important;
+  height: 280px !important;
+  display: block !important;
+}
+
+.antigravity-modal-footer {
+  font-size: 10px !important;
+  color: #64748b !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+}
+
+/* Copy Button styles inside HUD */
+.antigravity-hud-btn {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid #27282c !important;
+  color: #e2e8f0 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.antigravity-hud-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #3b82f6 !important;
+}
+
+/* HUD Live Price Alert Banner */
+.antigravity-hud-alert-banner {
+  position: absolute !important;
+  top: 41px !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: rgba(18, 19, 21, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-bottom: 1px solid #27282c !important;
+  padding: 10px 12px !important;
+  font-size: 10.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #f1f5f9 !important;
+  z-index: 101 !important;
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+}
+
+.antigravity-hud-alert-banner.show {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.antigravity-hud-alert-banner.entry {
+  border-left: 4px solid #3b82f6 !important;
+  background: rgba(15, 23, 42, 0.96) !important;
+}
+
+.antigravity-hud-alert-banner.tp {
+  border-left: 4px solid #10b981 !important;
+  background: rgba(6, 78, 59, 0.96) !important;
+}
+
+.antigravity-hud-alert-banner.sl {
+  border-left: 4px solid #ef4444 !important;
+  background: rgba(127, 29, 29, 0.96) !important;
+}
